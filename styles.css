@@ -1,0 +1,11 @@
+#table{
+    border: solid 1px black;
+    width: 80vw;
+    display: grid;
+    grid-template-rows: 3vh 3vh 3vh 3vh 3vh 3vh 3vh 3vh 3vh 3vh;
+    grid-template-columns: 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw;
+}
+.tableElement{
+    border: solid 1px black;
+
+}
