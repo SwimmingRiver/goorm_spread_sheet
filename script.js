@@ -45,4 +45,36 @@ function HighlightHandler(e) {
 
     const firstColumnCell = document.querySelector(`#column${focusColumn}`);
     firstColumnCell.classList.add('highlight');
+
+    document.querySelector('#nav').innerText = `Cell:${cellId}`
+};
+
+function SaveExcel() {
+    const table = document.querySelector('table'); 
+    const wsData = [[]]; 
+
+
+    table.querySelectorAll('tr').forEach((row, rowIndex) => {
+        wsData[rowIndex] = []; 
+
+        row.querySelectorAll('td').forEach((cell) => {
+            const inputElement = cell.querySelector('input');
+            if (inputElement) {
+                wsData[rowIndex].push(inputElement.value); 
+            }
+        });
+    });
+
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+
+    XLSX.writeFile(wb, 'example.xlsx'); 
+    const fileSaverOptions = { autoBom: true, type: 'binary' };
+    let blob = XLSX.write(wb, { bookType: 'xlsx', type: 'binary', mimeType: 'application/octet-stream' });
+
+    saveAs(blob, 'example.xlsx', fileSaverOptions);
 }
