@@ -1,22 +1,31 @@
-.spreadsheet-table {
-    border-collapse: collapse;
-    width: 100%;
+#export-btn {
+    background: #04AB46;
+    color: white;
+    border: none;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
-.spreadsheet-table th, .spreadsheet-table td {
-    border: 1px solid #ccc;
-
-    text-align: center; 
-    width: 8vw;
-    height: 4vh;
+.cell-row {
+    display: flex;
 }
 
-.highlight{
-    background-color: #91c6ec;
+.cell {
+    width: 80px;
+    border: 1px solid lightgray;
+    height: 40px;
+    outline: none;
+    box-sizing: border-box;
 }
-input{
-    border: none;   
-    width: 10vw;
-    height: 4vh;
 
+.cell.header {
+    text-align: center;
+    background: #ddd;
+}
+
+.cell.header.active {
+    background: lightblue;
+    color: white;
 }
